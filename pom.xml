@@ -20,15 +20,15 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <java.compiler.source>1.8</java.compiler.source>
-    <java.compiler.target>1.8</java.compiler.target>
+    <java.compiler.source>11</java.compiler.source>
+    <java.compiler.target>11</java.compiler.target>
 
     <javaee-api.version>7.0</javaee-api.version>
     <javax.mail.version>1.6.0</javax.mail.version>
     <jackson.version>2.9.10</jackson.version>
     <resteasy.version>3.9.0.Final</resteasy.version>
     <commons-net.version>3.6</commons-net.version>
-    <antlr-runtime.version>4.7.1</antlr-runtime.version>
+    <antlr-runtime.version>4.9.2</antlr-runtime.version>
 
     <lombok.version>1.18.10</lombok.version>
 
@@ -237,7 +237,7 @@
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.3</version>
+        <version>1.6.8</version>
         <extensions>true</extensions>
         <configuration>
           <serverId>ossrh</serverId>
@@ -248,8 +248,9 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
+        <version>3.8.1</version>
         <configuration>
+        <fork>true</fork>
           <source>${java.compiler.source}</source>
           <target>${java.compiler.target}</target>
         </configuration>
@@ -257,7 +258,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -274,12 +275,12 @@
       <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
-        <version>0.11</version>
+        <version>0.13</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.2.1</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -292,11 +293,11 @@
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
-        <version>5.2.2</version>
+        <version>6.1.6</version>
         <configuration>
           <cveValidForHours>24</cveValidForHours>
           <format>ALL</format>
-          <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+          <failBuildOnAnyVulnerability>false</failBuildOnAnyVulnerability>
           <failOnError>false</failOnError>
         </configuration>
         <executions>
